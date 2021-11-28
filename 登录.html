@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>登陆</title>
+<style>
+#biaoti{
+	font-size:20pt;
+	font-weight:bold;
+	color:yellow;
+}
+
+#neikuang{
+	width:200px;
+	height:100px;
+	border:15px soild red;
+}
+#denglu{				
+	font-size:36pt;
+    font-weight:bold;		
+    color:white;
+    }
+	</style>
+</head>
+
+<body background="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=4211843829,3777949213&fm=26&gp=0.jpg"style=" background-repeat:no-repeat ;
+background-size:100% 100%;
+background-attachment: fixed;">
+					<!--标题-->
+	<div id="neikuang" align="center"><span id="biaoti">购物网站</span>
+</div>
+		
+<div align="center">							<!--登录模块-->
+<form method="post" action="">
+	<field name="denglu" style="width:364px">
+  <legend><span id="denglu">用户名与密码</span></legend>
+  <p>用户：<input name="Username" type="text" size="30"/></p>
+    <p>密码：<input name="UserPassword" type="password" size="30"/></p>
+    </fieldset>
+    <p><input name="Sign in" type="submit" value="登录"/>&nbsp;&nbsp;&nbsp;&nbsp;
+    	<input name="Out" type="button" value="返回主界面" onclick="fanhui()"/></p>
+        <a target="_blank" href="注册.html" style="color:white">没有账号？免费注册</a>
+</form>
+</div>
+<script type="text/javascript">
+function fanhui()
+{
+	window.open("主界面.html");
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>问卷调查</title>
+	<style type="text/css">
+		p{
+			font-family:楷体;
+			font-size: 16pt;
+			color:white
+		}
+		#ti{
+		font-family:楷体;	
+			font-size: 18pt;
+			color:white
+			
+		}
+		h2{
+	text-align:center;
+	font-size:36pt;
+	border:#D1CA12 3px solid;
+	padding: 20px,20px;
+	font-family:楷体;
+	color:white
+		}
+		</style>
+	<script type="text/javascript">
+		function getwen1(wen1){
+			for(var i=0;i<wen1.length;i++)
+				{
+					if(wen1[i].checked)
+						return wen1[i].value;
+				}
+			return "[没有选择]";
+		}
+
+		function getwen2(wen2){
+			var result="";
+			for(var i=0;i<wen2.length;i++)
+				{
+					if(wen2[i].checked)
+						result+="["+wen2[i].value+"]";
+				}
+			return result;
+		}			
+		function getwen3(wen3){
+			for(var i=0;i<wen3.length;i++)
+				{
+					if(wen3[i].checked)
+						return wen3[i].value;
+				}
+			return "[没有选择]";
+		}
+		function showresult(){
+			var msg="你感觉本站："+getwen1(document.myform.wen1);
+			msg+="\n你对商品是否满意："+getwen3(document.myform.wen3);			
+			msg+="\n您希望多出现以下购物选择："+getwen2(document. myform.wen2);
+
+			alert(msg);
+		}
+		</script>
+</head>
+<body background="122.jpg"><h2>在线调查</h2>
+	<form name="myform">
+		<p>1.您感觉本站主页效果如何（单选）：<br>
+			<input type="radio" value="非常好" name="wen1" checked="checked"/>非常好<br>
+			<input type="radio" value="好" name="wen1" />好<br>
+			<input type="radio" value="一般" name="wen1" />一般<br>
+			<input type="radio" value="较差" name="wen1" />较差<br></p>         
+        <p>2.您对我们的购物网站是否满意（单选）：<br>
+			<input type="radio" value="满意" name="wen3"/>满意<br>
+			<input type="radio" value="不满意" name="wen3" />不满意<br></p>
+		<p>3.您希望多出现哪些购物选项（多选）：<br>
+			<input type="checkbox" value="鞋裤类" name="wen2" />鞋裤类<br>
+			<input type="checkbox" value="衣帽类" name="wen2" />衣帽类<br>
+			<input type="checkbox" value="科技类" name="wen2" />科技类<br>
+			<input type="checkbox" value="生活类" name="wen2" />生活类<br>
+	 	    <input type="checkbox" value="装饰类" name="wen2" />装饰类<br>
+	        <input type="checkbox" value="食物类" name="wen2" />食物类<br>
+		    <input type="checkbox" value="运动类" name="wen2" />运动类<br>
+		    <input type="checkbox" value="动漫类" name="wen2" />动漫类<br></p>
+
+	<p><button id="ti" name="button1" onClick="showresult()">提交</button></p>
+    <a href="主界面.html"><input id="ti" type="button" class="btn btn-info" name="regist" value="返回首页"></a>
+	</form>		
+</body>
+</html>

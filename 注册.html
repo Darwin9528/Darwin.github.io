@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>注册</title>
+<style>
+p{
+	font-weight=bold;
+	color:orange
+}
+#biaoti{
+	font-size:20pt;
+	font-weight:bold;
+	color:orange;
+}
+
+#neikuang{
+	width:200px;
+	height:100px;
+	
+}
+#zhuce1{				
+	font-size:36pt;
+    font-weight:bold;		
+    color:black;
+    }
+	</style>
+<script type="text/javascript">
+        var code; //在全局 定义验证码
+        function createCode() { //创建验证码函数
+            code = "";
+            var codeLength = 4;//验证码的长度
+            var selectChar = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B',
+                    'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
+                    'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');//所有候选组成验证码的字符，当然也可以用中文的
+            for (var i = 0; i < codeLength; i++) {
+                var charIndex = Math.floor(Math.random() * 36);
+                code += selectChar[charIndex];
+            }
+            // 设置验证码的显示样式，并显示
+            document.getElementById("discode").style.fontFamily = "黑体"; //设置字体
+            document.getElementById("discode").style.letterSpacing = "20px"; //字体间距
+            document.getElementById("discode").style.color = "red"; //字体颜色
+            document.getElementById("discode").innerHTML = code; // 显示
+        }
+</script>
+</head>
+
+<body background="121.jpg"style=" background-repeat:no-repeat ;
+background-size:100% 100%;
+background-attachment: fixed;">
+<div id="neikuang" align="center"><span id="biaoti">购物网站</span>
+</div>
+		
+	<div align="center">							<!--注册模块-->
+	<form method="post" action="">
+	<field name="denglu" style="width:364px">
+  	<legend><span id="zhuce1">注册用户</span></legend>
+  	<p>用&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp户：
+    <input id="z" name="Username" type="text" size="30" placeholder="请输入作为你未来的登录账号" /></p>
+    <p>密&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp码：
+    <input id="x" name="UserPassword" type="password" size="30" placeholder="输入你的登录密码" /></p>
+    <p>重复密码：<input id="y" name="SurePassword" type="password" size="30" placeholder="确认你的密码" /></p>
+    <p>用户类型：
+<select id=select >
+	<option value="普通会员">普通会员</option>
+    <option value="铂金会员">铂金会员</option>
+    <option value="钻石会员">钻石会员</option>
+    <option value="至尊会员">至尊会员</option>
+   </select></p>
+    <div class="input">
+    <span style="font-size:16px;color:white">验证码:</span><input id="t1" type="text" name="u"  οnblur="but()" maxlength=4 style="font-size:10px;font-family: 黑体"/>
+     <span id="discode"></span>
+     <input type="button" value="点击刷新" class="c" style="height:20px;"onClick="createCode()">
+      </div>
+    </fieldset>
+    <p><input name="zhuce" type="submit" value="注册" onclick="but()"/>&nbsp;&nbsp;&nbsp;&nbsp;
+    	<input name="Out" type="button" value="返回主界面" onclick="fanhui()"/></p>
+</form>
+</div>
+<script type="text/javascript">
+function fanhui()
+{
+	window.open("主界面.html");
+}
+function but()
+{	
+	var val1 = document.getElementById("t1").value;
+	var val2 = code;
+	var val3 = val1.toUpperCase();                              
+	if(val1.length<=0)
+	{
+		alert("请输入验证码！");
+	}
+    else if (val1!= val2&&val3!=val2) 
+	{
+          document.getElementById('t1').value = "";
+		  alert("验证码错误");
+    }
+	else bijiao();
+}
+function bijiao(){
+	var Z=document.getElementById("z");
+	var X=document.getElementById("x");
+	var Y=document.getElementById("y");
+	var myselect=document.getElementById("select");
+	if(X.value!=Y.value){
+	alert("两次输入密码不一样！");
+	}
+	else{
+	alert("欢迎您，尊敬的"+myselect.value+"注册成功！您的账户为:"+Z.value+"密码为:"+X.value);
+	}
+
+}
+</script> 
+</body>
+</html>
